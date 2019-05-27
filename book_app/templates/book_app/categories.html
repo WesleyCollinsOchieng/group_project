@@ -1,0 +1,43 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Modak' rel='stylesheet'>
+<div class="container" style="background-color: black; margin-top:10px;">
+
+    <header class="text-center" style="color: yellow; margin-top:25px; font-size:40px; font-family:Gugi">CATEGORIES</header>
+    <div class="top-menu" style="float:left; padding: 6px 10px; margin-top:35px">
+				<ul class="nav nav-tabs" style="padding-left: 0; margin: o; float:left; height: 60px">
+                    <li style="padding: 6px 10px; color: yellow; margin-left:5px"><a href="{% url 'book_app:index' %}" style="color: orange;">HOME</a></li>
+					<li style="padding: 6px 10px; color: yellow; margin-left:5px"><a href="{% url 'book_app:authors' %}" style="color: orange;">AUTHORS</a></li>
+					<li class ="active" style="padding: 6px 10px; color: yellow; margin-left:5px"><a href="" style="color: orange;">CATEGORIES</a></li>
+					<li style="padding: 6px 10px; color: yellow; margin-left:5px"><a href="" style="color: orange;">BEST BOOKS</a></li>
+					<li style="padding: 6px 10px; color: yellow; margin-left:5px"><a href="" style="color: orange;">LIBRARY</a></li>
+                    <li style="padding: 6px 10px; color: yellow; margin-left:5px"><a href="" style="color: orange;">NOTIFICATIONS</a></li>
+                    <li style="margin-top:10px; margin-left:5px">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.q }}">
+                    </li>
+                    <li style="margin-top:10px; margin-left:5px">
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                    </li>
+				</ul>
+			</div>
+
+
+    <div class="row">
+        {% for book in books %}
+        <div class="col-sm-3">
+            <div class="top-menu" style="margin: 30px; background-color: yellow">
+                <div class="caption" style="margin: 3px">
+                    <h6 class="text-center" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 90%; font-family:Gugi; font-size:15px">{{ book.genre }}</h6>
+
+                    <a href="" class="btn btn-warning btn-sm">
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
